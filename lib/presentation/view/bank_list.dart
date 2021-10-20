@@ -7,10 +7,10 @@ class BankList extends StatefulWidget {
   _BankListState createState() => _BankListState();
 }
 
-List<Car> cars = [
-  Car(1, "PT BANK BCA", "Active", "term and conditions", false),
-  Car(2, "PT BANK BCA", "Active", "term and conditions", false),
-  Car(3, "PT BANK BCA", "Active", "term and conditions", false),
+List<Bank> banks = [
+  Bank(1, "PT BANK BCA", "Active", "term and conditions", false),
+  Bank(2, "PT BANK BCA", "Active", "term and conditions", false),
+  Bank(3, "PT BANK BCA", "Active", "term and conditions", false),
 ];
 
 class _BankListState extends State<BankList> {
@@ -21,17 +21,17 @@ class _BankListState extends State<BankList> {
         child: ExpansionPanelList(
           expansionCallback: (panelIndex, isExpanded) {
             setState(() {
-              cars[panelIndex].isExpanded = !isExpanded;
+              banks[panelIndex].isExpanded = !isExpanded;
             });
           },
-          children: cars.map((car) {
+          children: banks.map((bank) {
             return ExpansionPanel(
-                isExpanded: car.isExpanded,
+                isExpanded: bank.isExpanded,
                 headerBuilder: (bc, status) {
                   return Container(
                     child: Container(
                       padding: EdgeInsets.all(10),
-                      child: Text(car.name),
+                      child: Text(bank.name),
                     ),
                   );
                 },
@@ -40,12 +40,12 @@ class _BankListState extends State<BankList> {
                     Container(
                       padding: EdgeInsets.all(10),
                       height: 100,
-                      child: Text(car.description),
+                      child: Text(bank.description),
                     ),
                     Container(
                       padding: EdgeInsets.all(10),
                       height: 50,
-                      child: Text(car.status),
+                      child: Text(bank.status),
                     ),
                   ],
                 ));
@@ -56,11 +56,11 @@ class _BankListState extends State<BankList> {
   }
 }
 
-class Car {
+class Bank {
   int id;
   String name;
   String status;
   String description;
   bool isExpanded;
-  Car(this.id, this.name, this.description, this.status, this.isExpanded);
+  Bank(this.id, this.name, this.description, this.status, this.isExpanded);
 }
