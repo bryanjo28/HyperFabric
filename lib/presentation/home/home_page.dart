@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     }
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(75),
+        preferredSize: Size.fromHeight(65),
         child: AppBar(
           elevation: 15,
           title: Text("HyperLedger Fabric"),

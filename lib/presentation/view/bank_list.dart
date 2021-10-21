@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/model/bank_model.dart';
+import 'package:project/presentation/view/bank_detail_page.dart';
 
 class BankList extends StatefulWidget {
   const BankList({Key? key}) : super(key: key);
@@ -9,8 +10,6 @@ class BankList extends StatefulWidget {
 }
 
 class _BankListState extends State<BankList> {
-  int status = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +28,17 @@ class _BankListState extends State<BankList> {
               child: ListView.builder(
                 scrollDirection: Axis.vertical,
                 itemCount: banks.length,
-                itemBuilder: (context, index) {
-                  var current;
-                  return Container(
+                itemBuilder: (context, index) => InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => BankDetail(
+                          bank: banks[index],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
                     margin: EdgeInsets.only(bottom: 10, right: 10),
                     height: 100,
                     width: 50,
@@ -53,30 +60,44 @@ class _BankListState extends State<BankList> {
                           child: Text(
                             banks[index].statusName,
                             style: TextStyle(
-                                color: current == status
-                                    ? Colors.red
-                                    : Colors.blue,
+                                color: Colors.blue,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
                         Positioned(
-                            left: 29,
-                            top: 55,
-                            child: Row(
-                              children: [
-                                Text("Beneficiary:"),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  banks[index].beneficiary,
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            )),
+                          left: 29,
+                          top: 55,
+                          child: Row(
+                            children: [
+                              Text("Beneficiary:"),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                banks[index].beneficiary,
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          left: 29,
+                          top: 75,
+                          child: Row(
+                            children: [
+                              Text("Expiry Date:"),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                "31 Dec 2021",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
                         Positioned(
                           right: 29,
                           top: 20,
@@ -84,16 +105,27 @@ class _BankListState extends State<BankList> {
                             banks[index].nominal,
                             style: TextStyle(
                                 color: Colors.blue,
-                                fontSize: 16,
+                                fontSize: 22,
                                 fontWeight: FontWeight.bold),
                           ),
-                        )
+                        ),
+                        Positioned(
+                          right: 29,
+                          top: 75,
+                          child: Text(
+                            "more >",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
