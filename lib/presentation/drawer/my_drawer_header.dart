@@ -11,10 +11,13 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
       width: double.infinity,
       height: 200,
       padding: EdgeInsets.only(top: 20.0),
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.only(bottomRight: Radius.circular(40)),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

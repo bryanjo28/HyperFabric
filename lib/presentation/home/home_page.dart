@@ -20,9 +20,23 @@ class _HomePageState extends State<HomePage> {
       container = BankList();
     }
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text("Hyper Ledger Fabric"),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(75),
+        child: AppBar(
+          elevation: 15,
+          title: Text("HyperLedger Fabric"),
+          actions: [
+            Icon(
+              Icons.notifications,
+            ),
+          ],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20)),
+          ),
+          backgroundColor: Colors.blue[500],
+        ),
       ),
       body: container,
       drawer: Drawer(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/widgets/card_bank_information.dart';
-import 'package:project/widgets/history_title.dart';
+import 'package:project/widgets/operation.dart';
 
 class DashboardHome extends StatefulWidget {
   const DashboardHome({Key? key}) : super(key: key);
@@ -17,13 +17,10 @@ class _DashboardHomeState extends State<DashboardHome> {
       body: SafeArea(
         child: Container(
           child: Column(
-            children: [
+            children: <Widget>[
               CardBankInformation(),
-              SizedBox(
-                height: 20,
-              ),
               Container(
-                child: HistoryTitle(),
+                child: Operation(),
               )
             ],
           ),

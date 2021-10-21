@@ -10,20 +10,8 @@ class CardBankInformation extends StatelessWidget {
     return Container(
       child: Container(
           width: double.infinity,
-          margin: EdgeInsets.all(10),
-          padding: EdgeInsets.all(15),
-          height: 250,
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey,
-                  spreadRadius: 2,
-                  blurRadius: 10,
-                  offset: Offset.fromDirection(45))
-            ],
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-          ),
+          height: 180,
+          padding: EdgeInsets.only(left: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -128,25 +116,6 @@ class CardBankInformation extends StatelessWidget {
                   ],
                 ),
               ),
-              Flexible(
-                child: Container(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: OutlinedButton(
-                            onPressed: () {}, child: const Text('Ajukan')),
-                      ),
-                      SizedBox(width: 15),
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text('Redeem')),
-                      )
-                    ],
-                  ),
-                ),
-              )
             ],
           )),
     );
